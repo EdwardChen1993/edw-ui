@@ -1,0 +1,73 @@
+:root {
+  /* colors */
+  --edw-color-white: #ffffff;
+  --edw-color-black: #000000;
+  --colors: (
+    primary: #409eff,
+    success: #67c23a,
+    warning: #e6a23c,
+    danger: #f56c6c,
+    info: #909399
+  );
+
+  @each $val, $color in var(--colors) {
+    --edw-color-$(val): $(color);
+    @for $i from 3 to 9 by 2 {
+      --edw-color-$(val)-light-$(i): mix(#fff, $(color), .$(i))
+    }
+    --edw-color-$(val)-light-8: mix(#fff, $(color), .8);
+    --edw-color-$(val)-dark-2: mix(#000, $(color), .2);
+  }
+
+  --edw-bg-color: #ffffff;
+  --edw-bg-color-page: #f2f3f5;
+  --edw-bg-color-overlay: #ffffff;
+  --edw-text-color-primary: #303133;
+  --edw-text-color-regular: #606266;
+  --edw-text-color-secondary: #909399;
+  --edw-text-color-placeholder: #a8abb2;
+  --edw-text-color-disabled: #c0c4cc;
+  --edw-border-color: #dcdfe6;
+  --edw-border-color-light: #e4e7ed;
+  --edw-border-color-lighter: #ebeef5;
+  --edw-border-color-extra-light: #f2f6fc;
+  --edw-border-color-dark: #d4d7de;
+  --edw-border-color-darker: #cdd0d6;
+  --edw-fill-color: #f0f2f5;
+  --edw-fill-color-light: #f5f7fa;
+  --edw-fill-color-lighter: #fafafa;
+  --edw-fill-color-extra-light: #fafcff;
+  --edw-fill-color-dark: #ebedf0;
+  --edw-fill-color-darker: #e6e8eb;
+  --edw-fill-color-blank: #ffffff;
+
+  /* border */
+  --edw-border-width: 1px;
+  --edw-border-style: solid;
+  --edw-border-color-hover: var(--edw-text-color-disabled);
+  --edw-border: var(--edw-border-width) var(--edw-border-style) var(--edw-border-color);
+  --edw-border-radius-base: 4px;
+  --edw-border-radius-small: 2px;
+  --edw-border-radius-round: 20px;
+  --edw-border-radius-circle: 100%;
+
+  /*font*/
+  --edw-font-size-extra-large: 20px;
+  --edw-font-size-large: 18px;
+  --edw-font-size-medium: 16px;
+  --edw-font-size-base: 14px;
+  --edw-font-size-small: 13px;
+  --edw-font-size-extra-small: 12px;
+  --edw-font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "\5fae\8f6f\96c5\9ed1", Arial, sans-serif;
+  --edw-font-weight-primary: 500;
+
+  /*disabled*/
+  --edw-disabled-bg-color: var(--edw-fill-color-light);
+  --edw-disabled-text-color: var(--edw-text-color-placeholder);
+  --edw-disabled-border-color: var(--edw-border-color-light);
+  
+  /*animation*/
+  --edw-transition-duration: .3s;
+  --edw-transition-duration-fast: .2s;
+
+}
